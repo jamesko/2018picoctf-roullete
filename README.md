@@ -12,7 +12,7 @@ Then either:
 Details on source code modifications:
 --------------------------------------
 1. Give a parameter to get_rand function, and set the seed to this value.
-
+``` C
     long get_rand(argSeed) {            <--- MOD
       long seed;
       FILE *f = fopen("/dev/urandom", "r");
@@ -23,6 +23,7 @@ Details on source code modifications:
       srand(seed);
       return seed;
     }
+'''
 
 2. Comment out one of the losing messages. The win scenario invoked the rand function once, and the lose scenario invoked it twice. This would desynccronize the hack game and live game because you would likely have losing guesses each round when attempting to discover the next random number. While, the live game would be all win scenarios because you are entering only correctly predicted values [other than the final round you might lose intentionally].
 
