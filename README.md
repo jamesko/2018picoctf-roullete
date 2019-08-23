@@ -23,10 +23,10 @@ Details on source code modifications:
       srand(seed);
       return seed;
     }
-'''
+```
 
 2. Comment out one of the losing messages. The win scenario invoked the rand function once, and the lose scenario invoked it twice. This would desynccronize the hack game and live game because you would likely have losing guesses each round when attempting to discover the next random number. While, the live game would be all win scenarios because you are entering only correctly predicted values [other than the final round you might lose intentionally].
-
+```C
     void play_roulette(long choice, long bet) {
 
       printf("Spinning the Roulette for a chance to win $%lu!\n", 2*bet);
@@ -45,9 +45,9 @@ Details on source code modifications:
       }
       puts("");
     }
-
+```
 3. Take command line arguments as value for use in modified "get_rand" function to be used as the seed.
-
+```C
 int main(int argc, char *argv[]) {
   setvbuf(stdout, NULL, _IONBF, 0);
 
@@ -55,6 +55,6 @@ int main(int argc, char *argv[]) {
 
 ...
 }
-
+```
 
 </>
